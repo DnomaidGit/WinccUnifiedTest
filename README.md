@@ -10,7 +10,7 @@
 ***
 ## General Info
 * It is a project to test the possibilities of Wincc Unified. At the moment the project is testing these points:
-   - Change screen by input of the plc and Write the active screen number to a PLC tag. 
+   - Change screen by input of the plc and write the active screen number to a PLC tag. 
    - Faceplate open Faceplate PopUp only once and udt interface.
 
 ### Images HMI
