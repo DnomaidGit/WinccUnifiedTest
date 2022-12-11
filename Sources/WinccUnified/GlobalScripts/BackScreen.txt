@@ -1,0 +1,16 @@
+export function BackScreen(NumMin, NameTextList, NameTag) {
+  let NumberScreen = 0; 
+  try {
+    NumberScreen = Tags(NameTag).Read();
+    if (NumberScreen>NumMin) {
+      NumberScreen = NumberScreen - 1;
+    } else {
+      NumberScreen = NumMin;
+    }
+    Tags(NameTag).Write(NumberScreen);
+  }
+  catch (ex) {
+    HMIRuntime.Trace("Error!!!");
+  }  
+  return TextListName(NumberScreen, NameTextList);
+}

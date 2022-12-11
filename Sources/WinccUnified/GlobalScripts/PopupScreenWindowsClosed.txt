@@ -1,0 +1,9 @@
+export function PopupScreenWindowsClosed() {
+  let ui = UI;
+  let count = ui.PopupScreenWindows.Count;  
+  if (count > 0) {  
+    for (let i = count-1; i >= 0; i--) {   
+      ui.PopupScreenWindows(i).Close();
+    }
+  }  
+}

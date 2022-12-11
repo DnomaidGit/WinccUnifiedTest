@@ -1,0 +1,24 @@
+function openFaceplatePopupOnlyOnce(){
+  let ui = UI;
+  let count = ui.PopupScreenWindows.Count;
+  let exists = false;
+  let tagValue1 = Tags("Udt_Data.Name").Read();
+  for (let i = 0; i < count; i++) {
+    let name = ui.PopupScreenWindows(i).Name;  
+    let value = name + tagValue1; 
+    if(PopupScreenWindowsMem.get(name) == value){
+      PopupScreenWindowsMem.delete(name);
+      ui.PopupScreenWindows(i).Close();
+      exists = true;
+      break;
+    } 
+  }
+  if (!exists) {
+    let po = Faceplate.OpenFaceplateInPopup("Faceplate_Heater_SetPoint_V_0_0_1", "Set point", true, false);
+    po.Left = Faceplate.Parent.Left + 10;
+    po.Top = Faceplate.Parent.Top + 182;
+    po.Visible = true;
+    let value = po.Name + tagValue1;    
+    PopupScreenWindowsMem.set (po.Name,value);
+  }
+}

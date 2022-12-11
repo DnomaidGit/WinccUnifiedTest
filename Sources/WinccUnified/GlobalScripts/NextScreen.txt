@@ -1,0 +1,16 @@
+export function NextScreen(NumMax, NameTextList, NameTag) {
+  let NumberScreen = 0; 
+  try {
+    NumberScreen = Tags(NameTag).Read();
+    if (NumberScreen<NumMax) {
+      NumberScreen = NumberScreen + 1;
+    } else {
+      NumberScreen = NumMax;
+    }
+    Tags(NameTag).Write(NumberScreen);
+  }
+  catch (ex) {
+    HMIRuntime.Trace("Error!!!");
+  }  
+  return TextListName(NumberScreen, NameTextList);
+}

@@ -1,0 +1,10 @@
+export function ChangeScreen(screenNumber, changeScreenNumber, changeScreen) {
+      let tagScreenNumber = Tags(screenNumber).Read();
+      let tagChangeScreenNumber = Tags(changeScreenNumber).Read();
+      let tagChangeScreen = Tags(changeScreen).Read();      
+    if (tagChangeScreen && tagScreenNumber!==tagChangeScreenNumber && tagChangeScreenNumber>0 && tagChangeScreenNumber<4) {
+      HMIRuntime.UI.SysFct.ChangeScreen(TextListName(tagChangeScreenNumber, "TextListTest"), "~");    
+      let tag1 = Tags(changeScreen);
+      tag1.Write(false);
+    }
+}

@@ -1,0 +1,13 @@
+﻿TYPE "Ctrl_Heater"
+VERSION : 0.1
+   STRUCT
+      "Name" : WString := WSTRING#'Name Heater';
+      presentTemp : Real;
+      setPointTemp : Real;
+      maxTempLimit : Real := 50.0;
+      minTempLimit : Real;
+      OnOff : Bool;
+   END_STRUCT;
+
+END_TYPE
+

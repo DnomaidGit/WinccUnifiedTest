@@ -1,0 +1,7 @@
+function inverterBit(){
+  if (Tags("Udt_Data.OnOff").Read()) {
+    Tags("Udt_Data.OnOff").Write(false);
+  } else {
+    Tags("Udt_Data.OnOff").Write(true);
+  }
+}

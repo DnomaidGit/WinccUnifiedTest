@@ -1,0 +1,11 @@
+export function OpenFaceplate(FaceplateType, Title, Data) {
+  let ui = UI;
+  let faceplate = [];
+  let count = ui.PopupScreenWindows.Count;
+  if (count == 0) {
+    faceplate[count] = UI.OpenFaceplateInPopup(FaceplateType,Title,Data,false,false);
+    faceplate[count].Left = 100;
+    faceplate[count].Top = 150;      
+    faceplate[count].Visible = true;
+  }
+}

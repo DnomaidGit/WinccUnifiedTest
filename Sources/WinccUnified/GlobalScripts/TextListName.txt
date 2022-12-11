@@ -1,0 +1,11 @@
+export function TextListName(Num, NameTextList) {
+  let result = "null";
+  const text = "@Default.";
+  try {
+    result = HMIRuntime.Resources.TextLists(text + NameTextList).Item(Num).Item(HMIRuntime.Language);
+  }
+  catch (ex) {
+    result = "error";
+  }    
+  return result;
+}

@@ -1,0 +1,56 @@
+﻿FUNCTION_BLOCK "Simu_Heater"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      Heater : "Ctrl_Heater";
+   END_VAR
+
+   VAR 
+      nSec : Int;
+      actTimer : Bool;
+      timerSec {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'; S7_SetPoint := 'False'} : IEC_TIMER;
+   END_VAR
+
+
+BEGIN
+	// Timer
+	#timerSec.TON(IN:=#actTimer,
+	              PT:=t#2s);
+	CASE #nSec OF
+	    1:  // On/Off
+	        #actTimer := TRUE;
+	        IF #Heater.OnOff AND #timerSec.Q THEN
+	            #actTimer := FALSE;
+	            GOTO Next;
+	        ELSE
+	            GOTO EndFF;
+	        END_IF;
+	    2:  // Limits
+	        IF #Heater.maxTempLimit < #Heater.setPointTemp THEN
+	            #Heater.setPointTemp := #Heater.maxTempLimit;
+	        END_IF;
+	        IF #Heater.minTempLimit > #Heater.setPointTemp THEN
+	            #Heater.setPointTemp := #Heater.minTempLimit;
+	        END_IF;
+	    3:  // Compare 1 add
+	        IF #Heater.maxTempLimit > #Heater.presentTemp AND #Heater.setPointTemp > #Heater.presentTemp THEN
+	            #Heater.presentTemp := #Heater.presentTemp + 1.0;
+	        END_IF;
+	        GOTO Next;
+	    4:  // Compare 1 sub
+	        IF #Heater.minTempLimit < #Heater.presentTemp AND #Heater.setPointTemp < #Heater.presentTemp THEN
+	            #Heater.presentTemp := #Heater.presentTemp - 1.0;
+	        END_IF;
+	        GOTO Next;
+	    ELSE  // Statement section ELSE
+	        #nSec :=1;
+	        GOTO EndFF;
+	END_CASE;
+	
+	Next://Next
+	#nSec := #nSec + 1;
+	EndFF://End
+	;
+	
+END_FUNCTION_BLOCK
+
