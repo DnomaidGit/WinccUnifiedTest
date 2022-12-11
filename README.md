@@ -1,5 +1,5 @@
 ***
-# S7DataLogger
+# Wincc Unified Test
 ***
 ## Table of Contents
 1. [General Info](#general-info)
