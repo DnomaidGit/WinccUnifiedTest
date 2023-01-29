@@ -1,0 +1,93 @@
+﻿FUNCTION_BLOCK "Insert_Sql_Server"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      Reset : Bool;
+   END_VAR
+
+   VAR_OUTPUT 
+      Alarm : Bool;
+   END_VAR
+
+   VAR_IN_OUT 
+      Heater : "Ctrl_Heater";
+   END_VAR
+
+   VAR 
+      actTimer : Bool;
+      timerSec {InstructionName := 'IEC_TIMER'; LibVersion := '1.0'; S7_SetPoint := 'False'} : IEC_TIMER;
+   END_VAR
+
+
+BEGIN
+	// Timer
+	#timerSec.TON(IN:=#actTimer,
+	              PT:=t#500ms);
+	IF NOT #Heater.OnOffSql THEN // Init
+	    #Heater.statusSql := 0;
+	   
+	    #Heater.insertQuerySql := FALSE;
+	    #Heater.insertCompletedSql := FALSE;
+	END_IF;
+	
+	IF #Reset THEN // Reset
+	    #Heater.errorSql := FALSE;
+	    #Heater.statusSql := 0;
+	END_IF;
+	
+	CASE #Heater.statusSql OF
+	    1:  // New data
+	        IF #Heater.presentTemp <> #Heater.presentTempInsertQuerySql THEN
+	            #actTimer := TRUE;
+	            #Heater.insertQuerySql := FALSE;
+	            #Heater.insertCompletedSql := FALSE;
+	            IF #timerSec.Q THEN
+	                #actTimer := FALSE;
+	                GOTO Next;
+	            END_IF;
+	        ELSE
+	            GOTO EndFF;
+	        END_IF;
+	    2:  // PLC-->HMI Insert Query Sql
+	        #Heater.presentTempInsertQuerySql := #Heater.presentTemp;
+	        #Heater.insertQuerySql := TRUE;
+	        #Heater.insertCompletedSql := FALSE;
+	        GOTO EndFF;
+	    3:  // HMI-->SQL Connecting..
+	        #Heater.insertQuerySql := TRUE;
+	        #Heater.insertCompletedSql := FALSE;
+	        GOTO EndFF;
+	    4:  // HMI-->SQL Connected!
+	        #Heater.insertQuerySql := TRUE;
+	        #Heater.insertCompletedSql := FALSE;
+	        GOTO EndFF;
+	    5:  // HMI-->SQL Completed! 
+	        #Heater.insertQuerySql := FALSE;
+	        #Heater.insertCompletedSql := TRUE;
+	        //#Heater.presentTempInsertQuerySql := #presentTempMem;
+	        GOTO Next;
+	    6:  // HMI-->SQL Closing.. 
+	        GOTO EndFF;
+	    7:  // HMI-->SQL Closed 
+	        GOTO Next;
+	    10: //Error
+	        #Heater.errorSql := TRUE;
+	        GOTO EndFF;
+	    ELSE  // Statement section ELSE
+	        #Heater.statusSql :=1;
+	        GOTO EndFF;
+	END_CASE;
+	
+	Next://Next
+	#Heater.statusSql := #Heater.statusSql + 1;
+	
+	EndFF://End
+	IF #Heater.errorSql THEN // Alarm
+	    #Alarm := #Heater.errorSql;
+	ELSE
+	    #Alarm := #Heater.errorSql;
+	END_IF;
+	
+	
+END_FUNCTION_BLOCK
+
