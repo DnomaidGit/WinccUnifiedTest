@@ -12,6 +12,7 @@
 * It is a project to test the possibilities of Wincc Unified. At the moment the project is testing these points:
    - Change screen by input of the plc and write the active screen number to a PLC tag. 
    - Faceplate open Faceplate PopUp only once and udt interface.
+   - Inserting data into a SQL Server Express database.
 
 ### Images HMI
 ***
@@ -25,7 +26,7 @@
 * Pc Windows 10
 ***
 ## Tested
-* Plc S7 1200
+* Plc S7 1200/1500
 * Simatic Pc station
 ***
 ## Package
