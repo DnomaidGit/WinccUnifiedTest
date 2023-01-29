@@ -1,0 +1,65 @@
+export async function InsertSqlServer(DSNFilePath, tableName, idNumber, name, temperature, status) {
+
+let vDSNFilePath = DSNFilePath;
+let vTableName = tableName;
+let vIdNumber = idNumber;
+let tagName = Tags(name).Read();
+let tagTemperature = Tags(temperature).Read();
+let value = Tags(status).Read();
+try{  
+ switch (value) {
+ case 0:case 1:
+  break;
+ case 2:case 3:case 4:
+   // NT SERVICE\WCCILScsService
+  let connectionstring = "FILEDSN="+vDSNFilePath;
+  HMIRuntime.Trace(vIdNumber + " SqlServer: Connecting.. " + connectionstring);
+  value = 3;
+  Tags(status).Write(value);  
+  let conn = await HMIRuntime.Database.CreateConnection(connectionstring);
+  HMIRuntime.Trace(vIdNumber + " SqlServer: Connected!");
+  value = 4;
+  Tags(status).Write(value);
+  let query = "Insert into "+vTableName+"(ID,Name,Temperature,Time) values ("+vIdNumber+",'"+tagName+"',"+tagTemperature+",SYSDATETIME());";
+  let results = await conn.Execute(query);
+  HMIRuntime.Trace(vIdNumber + " SqlServer: Completed! " + tagName + ": " + tagTemperature + " °C");
+  value = 5;
+  Tags(status).Write(value);
+  conn.Close();  
+  break;
+ case 6:  
+  HMIRuntime.Trace(vIdNumber + " SqlServer: Closed");
+  value = 7;
+  Tags(status).Write(value);
+  break;
+ case 8:
+  HMIRuntime.Trace(vIdNumber + " SqlServer: End");
+  break;
+ case 10:
+  HMIRuntime.Trace(idNumber + " SqlServer: Error");
+  break;
+ default:
+   value = 10;
+   Tags(status).Write(value);   
+   HMIRuntime.Trace(idNumber + " SqlServer: default value!!?¿");
+ break; 
+ }  
+}
+catch(e)
+{
+  value = 10;
+  Tags(status).Write(value);
+  HMIRuntime.Trace(idNumber + " SqlServer: Error!!?¿");   
+  let res = e.Results;
+  for(let statement in res)
+    {
+    let errors = res[statement].Errors;
+    for (let i in errors)
+      {
+        let detailed = errors[i];
+        HMIRuntime.Trace(vIdNumber + " SqlServer: Errors state : "+detailed.State);
+        HMIRuntime.Trace(vIdNumber + " SqlServer: Errors Message : "+detailed.Message);
+      }
+    }
+  }
+}
