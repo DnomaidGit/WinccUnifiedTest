@@ -1,0 +1,44 @@
+export async function DeleteSqlServer(DSNFilePath, tableName, status) {
+let vDSNFilePath = Tags(DSNFilePath).Read();
+let vTableName = Tags(tableName).Read();
+let value = Tags(status).Read();
+try{  
+   // NT SERVICE\WCCILScsService
+  let connectionstring = vDSNFilePath;
+  HMIRuntime.Trace(" SqlServer: Connecting.. " + connectionstring);
+  value = 1;
+  Tags(status).Write(value);  
+  let conn = await HMIRuntime.Database.CreateConnection(connectionstring);
+  HMIRuntime.Trace(" SqlServer: Connected!");
+  value = 2;
+  Tags(status).Write(value);
+  let query = "delete from "+ vTableName;
+  let results = await conn.Execute(query);
+  HMIRuntime.Trace(" SqlServer: Delete completed! ");
+  value = 3;
+  Tags(status).Write(value);
+  conn.Close();  
+  value = 4;
+  HMIRuntime.Trace(" SqlServer: Closed");
+  value = 5;
+  Tags(status).Write(value);
+  HMIRuntime.Trace(" SqlServer: End");
+}
+catch(e)
+{
+  value = 10;
+  Tags(status).Write(value);
+  HMIRuntime.Trace(" SqlServer: Error!!?¿");   
+  let res = e.Results;
+  for(let statement in res)
+    {
+    let errors = res[statement].Errors;
+    for (let i in errors)
+      {
+        let detailed = errors[i];
+        HMIRuntime.Trace(" SqlServer: Errors state : "+detailed.State);
+        HMIRuntime.Trace(" SqlServer: Errors Message : "+detailed.Message);
+      }
+    }
+  }
+}

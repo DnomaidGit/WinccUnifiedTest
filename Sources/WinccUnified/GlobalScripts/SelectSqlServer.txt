@@ -1,0 +1,88 @@
+export async function SelectSqlServer(DSNFilePath, tableName, status, ID, Name, Temperature, Time) {
+let vDSNFilePath = Tags(DSNFilePath).Read();
+let vTableName = Tags(tableName).Read();
+let value = Tags(status).Read();
+try{  
+   // NT SERVICE\WCCILScsService
+  let connectionstring = vDSNFilePath;
+  HMIRuntime.Trace(" SqlServer: Connecting.. " + connectionstring);
+  value = 1;
+  Tags(status).Write(value);  
+  let conn = await HMIRuntime.Database.CreateConnection(connectionstring);
+  HMIRuntime.Trace(" SqlServer: Connected!");
+  value = 2;
+  Tags(status).Write(value);
+  let query = "Select * from "+ vTableName +" ORDER BY Time DESC;";
+  let results = await conn.Execute(query);
+  if(results !== undefined && results !== null)
+    {
+      let statements = results.Results;
+      for(let statement in statements)
+        {
+          let rows = statements[statement].Rows;
+          for (let i in rows)
+            {
+              let row = rows[i];
+              if (i<8) 
+                {
+                for(let key in row)
+                  {
+                    switch (key) {
+                      case "ID":
+                        HMIRuntime.Trace(ID);
+                        let auxID = ID + "[" + i + "]";
+                        Tags(auxID).Write(row[key]);
+                        HMIRuntime.Trace(key+":"+row[key]);
+                        break;
+                      case "Name":
+                        let auxName = Name + "[" + i + "]";
+                        Tags(auxName).Write(row[key]);
+                        HMIRuntime.Trace(key+":"+row[key]);
+                        break;
+                      case "Temperature":
+                        let auxTemperature = Temperature + "[" + i + "]";
+                        Tags(auxTemperature).Write(row[key]);
+                        HMIRuntime.Trace(key+":"+row[key]);
+                        break;
+                      case "Time":
+                        let auxTime = Time + "[" + i + "]";
+                        Tags(auxTime).Write(row[key]);
+                        HMIRuntime.Trace(key+":"+row[key]);
+                        break;
+                      default:
+                        HMIRuntime.Trace(key+": Error row!");
+                        break;
+                      }  
+                  } 
+                }              
+            }
+        }
+    }
+  HMIRuntime.Trace(" SqlServer: Select Completed! ");
+  value = 3;
+  Tags(status).Write(value);
+  conn.Close();  
+  value = 4;
+  HMIRuntime.Trace(" SqlServer: Closed");
+  value = 5;
+  Tags(status).Write(value);
+  HMIRuntime.Trace(" SqlServer: End");
+  }
+  catch(e)
+  {
+  value = 10;
+  Tags(status).Write(value);
+  HMIRuntime.Trace(" SqlServer: Error!!?¿");   
+  let res = e.Results;
+  for(let statement in res)
+    {
+    let errors = res[statement].Errors;
+    for (let i in errors)
+      {
+        let detailed = errors[i];
+        HMIRuntime.Trace(" SqlServer: Errors state : "+detailed.State);
+        HMIRuntime.Trace(" SqlServer: Errors Message : "+detailed.Message);
+      }
+    }
+  }
+}
