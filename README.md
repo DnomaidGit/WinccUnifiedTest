@@ -13,6 +13,8 @@
    - Change screen by input of the plc and write the active screen number to a PLC tag. 
    - Faceplate open Faceplate PopUp only once and udt interface.
    - Inserting data into a SQL Server Express database.
+   - Deleting Value from SQL Server Express Database.
+   - Built Custom Web Control Table
 
 ### Images HMI
 ***
