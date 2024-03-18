@@ -10,11 +10,13 @@
 ***
 ## General Info
 * It is a project to test the possibilities of Wincc Unified. At the moment the project is testing these points:
-   - Change screen by input of the plc and write the active screen number to a PLC tag. 
-   - Faceplate open Faceplate PopUp only once and udt interface.
+   - Switching screens based on PLC input and recording the current view number to a PLC tag. 
+   - Faceplate open Faceplate PopUp only once and implementing s UDT (User-Defined Type) interface.
    - Inserting data into a SQL Server Express database.
-   - Deleting Value from SQL Server Express Database.
-   - Built Custom Web Control Table
+   - Retrieving specific records from the SQL Server Express database.
+   - Deleting records from SQL Server Express Database.
+   - Establishing a remote connection to the SQL Server Express database.
+   - Developing a custom web control for table manipulación.
 
 ### Images HMI
 ***
