@@ -16,7 +16,7 @@
    - Retrieving specific records from the SQL Server Express database.
    - Deleting records from SQL Server Express Database.
    - Establishing a remote connection to the SQL Server Express database.
-   - Developing a custom web control for table manipulación.
+   - Developing a custom web control for table manipulation.
 
 ### Images HMI
 ***
@@ -44,7 +44,7 @@
 |        | Retrieving specific records from the SQL Server Express database        |
 |        | Deleting records from SQL Server Express Database                       |
 | 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
-| 0.0.4  | Developing a custom web control for table manipulación                  |
+| 0.0.4  | Developing a custom web control for table manipulation                  |
 
 ***
 ## Tutorial
