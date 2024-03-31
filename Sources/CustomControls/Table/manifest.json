@@ -1,0 +1,73 @@
+{
+	"$schema": "./CWC_manifest_Schema.json",
+	"mver": "1.2.0",
+	"control": {
+		"identity": {
+			"name": "TableDnomaid",
+			"version": "1.0",
+			"displayname": "Table Dnomaid",
+			"icon": "./assets/TableDnomaid.ico",
+			"type": "guid://9DE938AC-F10E-4DED-B46D-5B3B0618B180",
+			"start": "./control/index.html"
+		},
+		"environment": {
+			"prerequisites": {
+			  "renderingspace": {
+				"defaultwidth": 810,
+				"defaultheight": 195,
+				"unit": "px"
+			  }
+			},
+			"extensions": {
+			  "HMI": {
+				"mandatory": true,
+				"version": "~1.0.0"
+			  }
+			}
+		},				  
+		"metadata": {
+			"author": "Quimet",
+			"keywords": [
+				"Template",
+				"Dnomaid"
+			],
+			"homepage": "https://github.com/DnomaidGit",
+			"company": "Dnomaid"
+		},
+		"contracts": {
+			"api": {
+				"methods": {
+					"DrawTableData": {
+						"parameters": {
+							"tableDataString": {
+								"type": "string"
+							}
+						},
+					"description": "Table Data String(JSON)"
+					}
+				},
+				"events": {
+					"SelectedRow": {
+						"arguments": {
+							"RowContent": {
+								"type": "string"
+							}
+						},
+						"description": "Selected row"
+					}
+				},
+				"properties": {
+					"TableDataString": {
+						"type": "string",
+						"default": "[{\"ID\":\"1\",\"Name\":\"Test1\",\"Temperature\":\"1°C\",\"Time\":\"00_00_00 00-00-1999\"},{\"ID\":\"2\",\"Name\":\"Test2\",\"Temperature\":\"2°C\",\"Time\":\"00_00_01 00-00-1999\"}]"
+					},
+					"ColumnStyleString" :{
+						"type": "string",
+						"default": "[{\"title\":\"ID\", \"field\":\"ID\"},{\"title\":\"Name\", \"field\":\"Name\"},{\"title\":\"Temperature\", \"field\":\"Temperature\"},{\"title\":\"Time\", \"field\":\"Time\"}]"
+					}
+				}
+			}
+		},
+		"types": {}
+	}
+}
