@@ -1,5 +1,6 @@
 ***
 # Custom Web Controls Installation Guide
+***
 
 This guide provides instructions on how to install Custom Web Controls for a TIA Portal project, enabling the addition of freely-programmable web controls that extend beyond the functionalities offered by the default toolbox.
 
@@ -39,10 +40,11 @@ This guide provides instructions on how to install Custom Web Controls for a TIA
 
 9. **Compile and Load**:
     - Compile and load the Runtime project to your HMI device.
-***
+
 ## Development Environment
 * TIA PORTAL V17 update 01
 * Pc Windows 10
+
 ## Package
 |        | COMMENT |
 | ------ | ------ |
