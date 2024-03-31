@@ -36,10 +36,15 @@
 ***
 ## Package
 
-|  | COMMENT |
+|RELEASES  | COMMENT |
 | ------ | ------ |
-| ArchiveProject | Plc + Hmi project.|
-| Sources |  SCL + Javascript + UDT |
+|        | Dynamically change HMI/SCADA screens based on PLC input                 |
+| 0.0.1  | Implement UDT interface to open Faceplate PopUp once, enhancing control |
+| 0.0.2  | Inserting data into a SQL Server Express database                       |
+|        | Retrieving specific records from the SQL Server Express database        |
+|        | Deleting records from SQL Server Express Database                       |
+| 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
+| 0.0.4  | Developing a custom web control for table manipulación                  |
 
 ***
 ## Tutorial
