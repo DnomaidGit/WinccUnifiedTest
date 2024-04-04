@@ -17,6 +17,7 @@
    - Deleting records from SQL Server Express Database.
    - Establishing a remote connection to the SQL Server Express database.
    - Developing a custom web control for table manipulation.
+   - Developing a custom web control Tetris.
 
 ### Images HMI
 ***
@@ -45,6 +46,7 @@
 |        | Deleting records from SQL Server Express Database                       |
 | 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
 | 0.0.4  | Developing a custom web control for table manipulation                  |
+| 0.0.5  | Developing a custom web control Tetris                 |
 
 ***
 ## Tutorial
