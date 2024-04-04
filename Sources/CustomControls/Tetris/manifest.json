@@ -1,0 +1,73 @@
+{
+	"$schema": "./CWC_manifest_Schema.json",
+	"mver": "1.2.0",
+	"control": {
+		"identity": {
+			"name": "Tetris",
+			"version": "1.0",
+			"displayname": "Dnomaid Tetris",
+			"icon": "./assets/TetrisDnomaid.ico",
+			"type": "guid://4E4FE6DA-82F7-4B2A-9C67-4432F6BEE3DE",
+			"start": "./control/index.html"
+		},
+		"environment": {
+			"prerequisites": {
+			  "renderingspace": {
+				"defaultwidth": 343,
+				"defaultheight": 692,
+				"unit": "px"
+			  }
+			},
+			"extensions": {
+			  "HMI": {
+				"mandatory": true,
+				"version": "~1.0.0"
+			  }
+			}
+		},
+		"metadata": {
+			"author": "Quimet",
+			"keywords": [
+				"Template",
+				"Dnomaid"
+			],
+			"homepage": "https://github.com/DnomaidGit",
+			"company": "Dnomaid"
+		},
+		"contracts": {
+			"api": {
+				"methods": {
+					"StartGame": {
+						"description": "Start game"
+					},
+					"PauseGame": {
+						"description": "Pause game"
+					},
+					"RestartGame": {
+						"description": "Restart game"
+					}
+				},
+				"events": {},
+				"properties": {
+					"Rotate": {
+						"type": "boolean",
+						"default": false
+					},
+					"Left": {
+						"type": "boolean",
+						"default": false
+					},
+					"Right": {
+						"type": "boolean",
+						"default": false
+					},
+					"Drop": {
+						"type": "boolean",
+						"default": false
+					}
+				}
+			}
+		},
+		"types": {}
+	}
+}

@@ -3,9 +3,9 @@
 	"mver": "1.2.0",
 	"control": {
 		"identity": {
-			"name": "TableDnomaid",
+			"name": "DnomaidTable",
 			"version": "1.0",
-			"displayname": "Table Dnomaid",
+			"displayname": "Dnomaid Table",
 			"icon": "./assets/TableDnomaid.ico",
 			"type": "guid://9DE938AC-F10E-4DED-B46D-5B3B0618B180",
 			"start": "./control/index.html"
