@@ -67,4 +67,7 @@ Watch the video on youtube.
 [![Watch the video](https://img.youtube.com/vi/glEN80kdpNA/0.jpg)](https://www.youtube.com/watch?v=glEN80kdpNA)
 * https://www.youtube.com/watch?v=glEN80kdpNA
 ***
+[![Watch the video](https://img.youtube.com/vi/MEREY21KcoY/0.jpg)](https://www.youtube.com/watch?v=MEREY21KcoY)
+* https://www.youtube.com/watch?v=MEREY21KcoY
+***
 
