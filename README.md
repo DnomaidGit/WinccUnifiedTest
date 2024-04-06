@@ -22,7 +22,7 @@
 ### Images HMI
 ***
 <div align="center">
-    <img src="/Images/ImageHMI2.png"width="400px"</img>
+    <img src="/Images/ImageHMI6.png"width="400px"</img>
     <img src="/Images/ImageHMI4.png"width="400px"</img>
 	<img src="/Images/ImageHMI5.png"width="400px"</img>
 </div>  
