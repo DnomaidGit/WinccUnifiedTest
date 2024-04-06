@@ -1,0 +1,68 @@
+{
+	"$schema": "./CWC_manifest_Schema.json",
+	"mver": "1.2.0",
+	"control": {
+		"identity": {
+			"name": "Dnomaid",
+			"version": "1.0",
+			"displayname": "Dnomaid Template",
+			"icon": "./assets/Dnomaid.ico",
+			"type": "guid://0F9F7D83-89C4-469B-A897-40CCE1091384",
+			"start": "./control/index.html"
+		},
+"environment": {
+			"prerequisites": {
+			  "renderingspace": {
+				"defaultwidth": 526,
+				"defaultheight": 200,
+				"unit": "px"
+			  }
+			},
+			"extensions": {
+			  "HMI": {
+				"mandatory": true,
+				"version": "~1.0.0"
+			  }
+			}
+		},				  
+		"metadata": {
+			"author": "Quimet",
+			"keywords": [
+				"Template",
+				"Dnomaid"
+			],
+			"homepage": "https://github.com/DnomaidGit",
+			"company": "Dnomaid"
+		},
+		"contracts": {
+			"api": {
+				"methods": {
+					"Add": {
+						"description": "Addition mathematical operation"
+					}
+				},
+				"events": {
+					"Subtract": {
+						"arguments": {
+							"Result": {
+								"type": "number"
+							}
+						},
+						"description": "Mathematical operation subtract"
+					}
+				},
+				"properties": {
+					"Value1": {
+						"type": "number",
+						"default": 0
+					},
+					"Value2": {
+						"type": "number",
+						"default": 0
+					}					
+				}
+			}
+		},
+		"types": {}
+	}
+}

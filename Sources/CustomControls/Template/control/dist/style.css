@@ -1,0 +1,61 @@
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    color: #51555C;
+    font-family: "Montserrat", sans-serif;
+    overflow: hidden;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.dsp-none {
+    display: none !important;
+}
+
+.dsp-block {
+    display: block !important;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+.padding0 {
+    padding: 0;
+}
+
+#content,
+#tableSimple_wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+tr {
+    width: 100%;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+th {
+    padding: 12px 0 12px 4px;
+}
+
+td {
+    padding: 6px 4px;
+}
+
+tr.selected {
+    background-color: #A5B4BB !important;
+    color: #4F535A !important;
+}
+
+tr.selected>.sorting_1,
+tr.selected>.sorting_2,
+tr.selected>.sorting_3 {
+    background-color: transparent !important;
+}
