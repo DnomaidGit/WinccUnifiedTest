@@ -52,4 +52,6 @@ This guide provides instructions on how to install Custom Web Controls for a TIA
 |9DE938AC-F10E-4DED-B46D-5B3B0618B180| Table  |
 |4E4FE6DA-82F7-4B2A-9C67-4432F6BEE3DE| Tetris |
 
+## Links
+[Link Siemens Custom Web Control](https://cache.industry.siemens.com/dl/dl-media/040/109794040/att_1056137/v1/143126196491_de-DE/en-US/index.html#treeId=c770ef4efcd437ad4076aad395535dbd)
 
