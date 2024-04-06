@@ -46,7 +46,7 @@ This guide provides instructions on how to install Custom Web Controls for a TIA
 * Pc Windows 10
 
 ## Package
-|        | COMMENT |
+| Custom Web Control       | COMMENT |
 | ------ | ------ |
 |0F9F7D83-89C4-469B-A897-40CCE1091384| Template  (pending update) |
 |9DE938AC-F10E-4DED-B46D-5B3B0618B180| Table  |

@@ -46,7 +46,15 @@
 |        | Deleting records from SQL Server Express Database                       |
 | 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
 | 0.0.4  | Developing a custom web control for table manipulation                  |
-| 0.0.5  | Developing a custom web control Tetris                 |
+| 0.0.5  | Developing a custom web control Tetris                                  |
+
+| Custom Web Control       | COMMENT |
+| ------ | ------ |
+|0F9F7D83-89C4-469B-A897-40CCE1091384| Template  (pending update) |
+|9DE938AC-F10E-4DED-B46D-5B3B0618B180| Table  |
+|4E4FE6DA-82F7-4B2A-9C67-4432F6BEE3DE| Tetris |
+
+[Download](Sources/CustomControl/README.md)
 
 ***
 ## Tutorial
