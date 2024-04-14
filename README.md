@@ -18,6 +18,7 @@
    - Establishing a remote connection to the SQL Server Express database.
    - Developing a custom web control for table manipulation.
    - Developing a custom web control Tetris.
+   - SQlite database.
 
 ### Images HMI
 ***
@@ -48,6 +49,7 @@
 | 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
 | 0.0.4  | Developing a custom web control for table manipulation                  |
 | 0.0.5  | Developing a custom web control Tetris                                  |
+| 0.0.6  | SQlite database                                                         |
 
 | Custom Web Control       | COMMENT |
 | ------ | ------ |
