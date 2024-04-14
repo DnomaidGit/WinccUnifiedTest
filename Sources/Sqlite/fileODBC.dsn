@@ -1,0 +1,19 @@
+[ODBC]
+DRIVER=SQLite3 ODBC Driver
+ILike=0
+AttachAs=
+JDConv=0
+BigInt=0
+LoadExt=
+OEMCP=0
+JournalMode=
+FKSupport=0
+NoWCHAR=0
+NoCreat=0
+LongNames=0
+ShortNames=0
+Timeout=
+NoTXN=0
+SyncPragma=
+StepAPI=0
+Database=C:\DbSQLite\dnomaiDatabase.db
