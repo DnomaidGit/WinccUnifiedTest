@@ -1,0 +1,61 @@
+export async function SqlQuery(_connectionstring, _query, _status) {
+let arrayValue = [];
+let status = Tags(_status).Read();
+HMIRuntime.Trace("Sql: Start.. ");
+ try{
+  let connectionstring = _connectionstring;
+  HMIRuntime.Trace(" Sql: Connecting.. " + connectionstring);
+  status = 1;
+  Tags(_status).Write(status);
+  let conn = await HMIRuntime.Database.CreateConnection(connectionstring);
+  HMIRuntime.Trace(" Sql: Connected!");
+  status = 2;
+  Tags(_status).Write(status);
+  let results = await conn.Execute(_query);
+  HMIRuntime.Trace(" Sql query: " + _query);
+  status = 3;
+  Tags(_status).Write(status);
+   if(results !== undefined && results !== null)
+  {
+    let statements = results.Results;
+    for(let statement in statements)
+    {
+      let rows = statements[statement].Rows;
+      for (let i in rows)
+      {
+        let row = rows[i];
+        for(let key in row)
+        {
+           HMIRuntime.Trace(key+":"+row[key]);
+           arrayValue.push({[key.toString()]:row[key].toString()})            
+        }
+      }
+    }
+  }
+  status = 4;
+  Tags(_status).Write(status);
+  HMIRuntime.Trace("Sql: Request completed JSON " +JSON.stringify(arrayValue));  
+  conn.Close();
+  status = 5;
+  Tags(_status).Write(status);  
+  HMIRuntime.Trace("Sql: Closed");
+  return arrayValue;  
+}
+catch(e)
+{
+  status = 10;
+  Tags(_status).Write(status);
+  HMIRuntime.Trace(" Sql: Error!!?¿");
+  let res = e.Results;
+  for(let statement in res)
+  {
+    let errors = res[statement].Errors;
+    for (let i in errors)
+      {
+        let detailed = errors[i];
+        HMIRuntime.Trace("Sql: Errors state : "+detailed.State);
+        HMIRuntime.Trace("Sql: Errors Message : "+detailed.Message);
+      }
+    }
+  }
+}

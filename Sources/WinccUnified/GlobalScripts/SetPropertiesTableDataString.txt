@@ -1,0 +1,21 @@
+export async function SetPropertiesTableDataString(_arrayValue, _ItemsName, _numberNameColumns) {
+let arrayValue = _arrayValue;
+HMIRuntime.Trace("SetPropertiesTableDataString: Starting... ");
+if (arrayValue !== undefined && arrayValue !== null) {
+  const numberNameColumns = _numberNameColumns;
+  const output = [];
+  arrayValue.forEach((obj, index) => {
+    const outputIndex = Math.floor(index / numberNameColumns);  
+    if (index % numberNameColumns === 0) 
+      {
+      output[outputIndex] = { "Index": outputIndex.toString() };
+      }  
+    const [key, value] = Object.entries(obj)[0];  
+    output[outputIndex][key] = value;
+  });
+  Screen.Items(_ItemsName).Properties.TableDataString = JSON.stringify(output);
+  HMIRuntime.Trace("SetPropertiesTableDataString: "+JSON.stringify(output));
+} else {
+  HMIRuntime.Trace("SetPropertiesTableDataString error!");
+}
+}

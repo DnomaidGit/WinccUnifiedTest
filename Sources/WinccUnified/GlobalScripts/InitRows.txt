@@ -1,0 +1,13 @@
+export function InitRows(_NumRows, _IDSqlSelect, _NameSqlSelect, _TemperatureSqlSelect, _TimeSqlSelect) {
+for (let i = 0; i < _NumRows; i++) 
+  {
+    let auxID = _IDSqlSelect + "[" + i + "]";
+    Tags(auxID).Write(0);
+    auxID = _NameSqlSelect + "[" + i + "]";
+    Tags(auxID).Write(" ");
+    auxID = _TemperatureSqlSelect + "[" + i + "]";
+    Tags(auxID).Write(0);
+    auxID = _TimeSqlSelect + "[" + i + "]";
+    Tags(auxID).Write(new Date("July 4 1776 12:30"));
+  }
+}

@@ -1,4 +1,4 @@
-export async function SelectSqlServer(DSNFilePath, tableName, status, ID, Name, Temperature, Time) {
+export async function SelectSqlServer(DSNFilePath, tableName, status, numRows, ID, Name, Temperature, Time) {
 let vDSNFilePath = Tags(DSNFilePath).Read();
 let vTableName = Tags(tableName).Read();
 let value = Tags(status).Read();
@@ -23,13 +23,12 @@ try{
           for (let i in rows)
             {
               let row = rows[i];
-              if (i<8) 
+              if (i<numRows) 
                 {
                 for(let key in row)
                   {
                     switch (key) {
-                      case "ID":
-                        HMIRuntime.Trace(ID);
+                      case "ID":                      
                         let auxID = ID + "[" + i + "]";
                         Tags(auxID).Write(row[key]);
                         HMIRuntime.Trace(key+":"+row[key]);

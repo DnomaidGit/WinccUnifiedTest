@@ -1,28 +1,30 @@
-export async function InsertSqlServer(DSNFilePath, tableName, idNumber, name, temperature, status) {
+export async function InsertSqlServer(DSNFilePath, tableName, idNumber, name, temperature, status, selectDB) {
 
-let vDSNFilePath = DSNFilePath;
-let vTableName = tableName;
+let vDSNFilePath = Tags(DSNFilePath).Read();
+let vTableName = Tags(tableName).Read();
 let vIdNumber = idNumber;
-let tagName = Tags(name).Read();
+let tagName = name; //Tags(name).Read();
 let tagTemperature = Tags(temperature).Read();
 let value = Tags(status).Read();
+let tagSelectDB = Tags(selectDB).Read();
 try{  
  switch (value) {
  case 0:case 1:
   break;
  case 2:case 3:case 4:
    // NT SERVICE\WCCILScsService
-  let connectionstring = "FILEDSN="+vDSNFilePath;
+  let connectionstring = vDSNFilePath;
   HMIRuntime.Trace(vIdNumber + " SqlServer: Connecting.. " + connectionstring);
   value = 3;
   Tags(status).Write(value);  
   let conn = await HMIRuntime.Database.CreateConnection(connectionstring);
   HMIRuntime.Trace(vIdNumber + " SqlServer: Connected!");
   value = 4;
-  Tags(status).Write(value);
-  let query = "Insert into "+vTableName+"(ID,Name,Temperature,Time) values ("+vIdNumber+",'"+tagName+"',"+tagTemperature+",SYSDATETIME());";
+  Tags(status).Write(value);  
+  let timeNow = getDateTime(true,tagSelectDB);
+  let query = "Insert into "+vTableName+"(ID,Name,Temperature,Time) values ("+vIdNumber+",'"+tagName+"',"+tagTemperature+","+timeNow+");";  
   let results = await conn.Execute(query);
-  HMIRuntime.Trace(vIdNumber + " SqlServer: Completed! " + tagName + ": " + tagTemperature + " °C");
+  HMIRuntime.Trace(vIdNumber + " SqlServer: Insert completed! " + tagName + ": " + tagTemperature + " °C");
   value = 5;
   Tags(status).Write(value);
   conn.Close();  

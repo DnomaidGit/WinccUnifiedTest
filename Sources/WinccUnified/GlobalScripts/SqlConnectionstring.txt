@@ -1,0 +1,35 @@
+export function SqlConnectionstring(_DSNFileSetup, _DSNFilePath, _Server, _DataBase, _Table, _UID, _pwd, _selectDB, _DataBasePath) {
+HMIRuntime.Trace("SqlConnectionstring: Starting... ");
+switch (_selectDB) {
+case 0:
+  if (_DSNFileSetup) 
+  {
+    G_connectionstring = "FILEDSN="+ _DSNFilePath;
+  } else {
+    G_connectionstring = "Driver={SQL Server}; Server="+_Server+"; Database="+_DataBase+";trusted_connection=no; UID="+_UID+"; pwd="+_pwd; 
+  }
+  break;
+case 1:
+  if (_DSNFileSetup) 
+  {
+    G_connectionstring = "FILEDSN="+ _DSNFilePath;
+  } else {
+    G_connectionstring = "Driver={SQLite3 ODBC Driver}; Database="+_DataBasePath+"; trusted_connection=yes;"; 
+  }
+  break;
+case 2:
+  if (_DSNFileSetup) 
+  {
+    G_connectionstring = "FILEDSN="+ _DSNFilePath;
+  } else {
+    G_connectionstring = "Driver={MySQL ODBC 8.3 ANSI Driver}; Server="+_Server+"; Database="+_DataBase+";trusted_connection=no; UID="+_UID+"; pwd="+_pwd; 
+  }
+  break;
+default:
+  HMIRuntime.Trace("SqlConnectionstring error select DB");
+  break;
+}
+
+HMIRuntime.Trace("SqlConnectionstring: " + G_connectionstring);
+return G_connectionstring;
+}

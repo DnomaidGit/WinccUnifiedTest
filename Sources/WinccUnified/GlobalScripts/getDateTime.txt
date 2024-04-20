@@ -1,0 +1,26 @@
+export function getDateTime(_sysDateTime, _selectDB) {
+    let result = "yyyy-MM-dd HH:mm:ss"
+    if (_sysDateTime) {
+      switch (_selectDB) {
+      case 0:
+        result = "SYSDATETIME()";        
+        break;
+      case 1:
+        result = "CURRENT_TIMESTAMP";
+        break;
+      case 2:
+        result = "SYSDATE()";
+        break;
+      }      
+    } else {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = ('0' + (now.getMonth() + 1)).slice(-2);
+      const day = ('0' + now.getDate()).slice(-2);
+      const hour = ('0' + now.getHours()).slice(-2);
+      const minute = ('0' + now.getMinutes()).slice(-2);
+      const second = ('0' + now.getSeconds()).slice(-2);
+      result = year.toString()+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+    }
+    return result;
+}
