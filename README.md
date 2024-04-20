@@ -12,13 +12,15 @@
 * It is a project to test the possibilities of Wincc Unified. At the moment the project is testing these points:
    - Switching screens based on PLC input and recording the current view number to a PLC tag. 
    - Faceplate open Faceplate PopUp only once and implementing s UDT (User-Defined Type) interface.
-   - Inserting data into a SQL Server Express database.
-   - Retrieving specific records from the SQL Server Express database.
-   - Deleting records from SQL Server Express Database.
+   - Inserting data into a SQL Server Express database (INSERT).
+   - Retrieving specific records from the SQL Server Express database(SELECT).
+   - Deleting records from SQL Server Express Database(DELETE).
    - Establishing a remote connection to the SQL Server Express database.
    - Developing a custom web control for table manipulation.
    - Developing a custom web control Tetris.
    - SQLite database.
+   - MySQL database.
+   - Update data in a database (UPDATE).
 
 ### Images HMI
 ***
@@ -43,13 +45,15 @@
 | ------ | ------ |
 |        | Dynamically change HMI/SCADA screens based on PLC input                 |
 | 0.0.1  | Implement UDT interface to open Faceplate PopUp once, enhancing control |
-| 0.0.2  | Inserting data into a SQL Server Express database                       |
-|        | Retrieving specific records from the SQL Server Express database        |
-|        | Deleting records from SQL Server Express Database                       |
+| 0.0.2  | Using Subqueries in INSERT statement                                    |
+|        | Using Subqueries in SELECT statement                                    |
+|        | Using Subqueries in DELETE statement                                    |
 | 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
 | 0.0.4  | Developing a custom web control for table manipulation                  |
 | 0.0.5  | Developing a custom web control Tetris                                  |
 | 0.0.6  | SQLite database                                                         |
+| 0.0.7  | MySQL database                                                          |
+|        | Using Subqueries in UPDATE statement                                    |
 
 | Custom Web Control       | COMMENT |
 | ------ | ------ |

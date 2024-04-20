@@ -1,9 +1,0 @@
-[ODBC]
-DRIVER=SQL Server
-UID=dnomaiD
-DATABASE=dnomaiDatabase
-WSID=DESKTOP-MFC85HV
-APP=Sistema operativo Microsoft® Windows®
-Trusted_Connection=Yes
-SERVER=DESKTOP-MFC85HV\SQLEXPRESS
-Description=file ODBC

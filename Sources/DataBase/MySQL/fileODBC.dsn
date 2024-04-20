@@ -1,0 +1,10 @@
+[ODBC]
+DRIVER=MySQL ODBC 8.3 ANSI Driver
+UID=dnomaid
+USER=dnomaid
+SERVER=localhost
+PORT=3306
+PASSWORD=123
+NO_SCHEMA=1
+DB=dnomaidatabase
+DATABASE=dnomaidatabase
