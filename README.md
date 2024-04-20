@@ -85,4 +85,10 @@ Watch the video on youtube.
 [![Watch the video](https://img.youtube.com/vi/MEREY21KcoY/0.jpg)](https://www.youtube.com/watch?v=MEREY21KcoY)
 * https://www.youtube.com/watch?v=MEREY21KcoY
 ***
+[![Watch the video](https://img.youtube.com/vi/RAA_pDz8YUc/0.jpg)](https://www.youtube.com/watch?v=RAA_pDz8YUc)
+* https://www.youtube.com/watch?v=RAA_pDz8YUc
+***
+[![Watch the video](https://img.youtube.com/vi/jfNLthcY6LE/0.jpg)](https://www.youtube.com/watch?v=jfNLthcY6LE)
+* https://www.youtube.com/watch?v=jfNLthcY6LE
+***
 
