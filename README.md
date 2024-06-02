@@ -41,27 +41,25 @@
 ***
 ## Package
 
-|RELEASES  | COMMENT |
-| ------ | ------ |
-|        | Dynamically change HMI/SCADA screens based on PLC input                 |
-| 0.0.1  | Implement UDT interface to open Faceplate PopUp once, enhancing control |
-| 0.0.2  | Using Subqueries in INSERT statement                                    |
-|        | Using Subqueries in SELECT statement                                    |
-|        | Using Subqueries in DELETE statement                                    |
-| 0.0.3  | Establishing a remote connection to the SQL Server Express database     |
-| 0.0.4  | Developing a custom web control for table manipulation                  |
-| 0.0.5  | Developing a custom web control Tetris                                  |
-| 0.0.6  | SQLite database                                                         |
-| 0.0.7  | MySQL database                                                          |
-|        | Using Subqueries in UPDATE statement                                    |
+|RELEASES  | COMMENT                                                                 | DOWNLOAD                                         |
+| ------   | ------                                                                  | ------                                           |
+|          | Dynamically change HMI/SCADA screens based on PLC input                 |                                                  |  
+| 0.0.1    | Implement UDT interface to open Faceplate PopUp once, enhancing control |[Link Download Project TIAPORTAL](ArchiveProject) |
+| 0.0.2    | Using Subqueries in INSERT statement                                    |                                                  |
+|          | Using Subqueries in SELECT statement                                    |                                                  |
+|          | Using Subqueries in DELETE statement                                    |                                                  |
+| 0.0.3    | Establishing a remote connection to the SQL Server Express database     |[Link Download Project TIAPORTAL](ArchiveProject) |
+| 0.0.4    | Developing a custom web control for table manipulation                  |[Link Download Project TIAPORTAL](ArchiveProject) |
+| 0.0.5    | Developing a custom web control Tetris                                  |[Link Download Project TIAPORTAL](ArchiveProject) |
+| 0.0.6    | SQLite database                                                         |[Link Download Project TIAPORTAL](ArchiveProject) |
+| 0.0.7    | MySQL database                                                          |[Link Download Project TIAPORTAL](ArchiveProject) |
+|          | Using Subqueries in UPDATE statement                                    |                                                  |
 
-| Custom Web Control       | COMMENT | DOWNLOAD |
-| ------ | ------ | ------ |
-|0F9F7D83-89C4-469B-A897-40CCE1091384| Template | [Link Download Custom Web Control](Sources/CustomControls/Template) |
-|9DE938AC-F10E-4DED-B46D-5B3B0618B180| Table  | [Link Download Custom Web Control](Sources/CustomControls/Template) |
-|4E4FE6DA-82F7-4B2A-9C67-4432F6BEE3DE| Tetris | [Link Download Custom Web Control](Sources/CustomControls/Template) |
-
-[Link Download Custom Web Control](Sources/CustomControls)
+| Custom Web Control       | COMMENT | DOWNLOAD                                                                                |
+| ------                   | ------  | ------                                                                                  |
+|0F9F7D83-89C4-469B-A897-40CCE1091384| Template | [Link Download Custom Web Control Template](Sources/CustomControls/Template) |
+|9DE938AC-F10E-4DED-B46D-5B3B0618B180| Table    | [Link Download Custom Web Control Table](Sources/CustomControls/Template)    |
+|4E4FE6DA-82F7-4B2A-9C67-4432F6BEE3DE| Tetris   | [Link Download Custom Web Control Tetris](Sources/CustomControls/Template)   |
 
 ***
 ## Tutorial
