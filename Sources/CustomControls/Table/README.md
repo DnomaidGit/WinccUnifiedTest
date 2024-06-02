@@ -18,7 +18,7 @@ This guide provides instructions on how to install Custom Web Controls for a TIA
 
 3. **Create CustomControls Folder**: Within the `UserFiles` subfolder, create a new folder named `CustomControls`.
 
-4. **Add Control File**: Store the custom web control program as a **🔵 9DE938AC-F10E-4DED-B46D-5B3B0618B180}.zip** file in the `CustomControls` folder.
+4. **Add Control File**: Store the custom web control program as a **🔵 {9DE938AC-F10E-4DED-B46D-5B3B0618B180}.zip** file in the `CustomControls` folder.
 
 5. **Update Toolbox in TIA Portal**:
     - Open TIA Portal.
