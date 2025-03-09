@@ -54,6 +54,7 @@
 | 0.0.6    | SQLite database                                                         |[Link Download Project TIAPORTAL](ArchiveProject) |
 | 0.0.7    | MySQL database                                                          |[Link Download Project TIAPORTAL](ArchiveProject) |
 |          | Using Subqueries in UPDATE statement                                    |                                                  |
+| 0.0.8    | Custom web control Table Filter                                         |[Link Download Project TIAPORTAL](ArchiveProject) |
 
 | Custom Web Control       | COMMENT | DOWNLOAD                                                                                |
 | ------                   | ------  | ------                                                                                  |
